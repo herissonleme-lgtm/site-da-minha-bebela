@@ -1,189 +1,221 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Minha Bebela 💖</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Você, Meu Amor ❤️</title>
 
-<!-- GOOGLE FONTS -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #ffe6e9;
+            color: #4a0d21;
+        }
 
-<style>
-    body {
-        margin: 0;
-        font-family: "Poppins", sans-serif;
-        background: linear-gradient(135deg, #ffb6d9, #ffd2e8, #fff);
-        background-size: 300% 300%;
-        animation: gradient 10s ease infinite;
-        overflow-x: hidden;
-        color: #fff;
-    }
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #ff8fa3, #ffcad4);
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
 
-    @keyframes gradient {
-        0% {background-position: 0 50%;}
-        50%{background-position: 100% 50%;}
-        100%{background-position: 0 50%;}
-    }
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
 
-    header {
-        text-align: center;
-        padding: 40px 20px;
-        font-size: 28px;
-        font-weight: 600;
-        color: white;
-        text-shadow: 0 0 10px #ff5ca7;
-        animation: fadeIn 2s ease;
-    }
+        header p {
+            font-size: 1.3rem;
+        }
 
-    .container {
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-        max-width: 500px;
-        margin: auto;
-        padding: 20px;
-    }
+        .section {
+            max-width: 900px;
+            margin: auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
 
-    .card {
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 20px;
-        padding: 18px;
-        backdrop-filter: blur(10px);
-        box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.4);
-        animation: slideUp 1.2s ease;
-    }
+        .photos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
 
-    .card img {
-        width: 100%;
-        border-radius: 15px;
-        box-shadow: 0px 0px 15px #ff7dc3;
-    }
+        .photo-card {
+            width: 260px;
+            height: 330px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: 0.3s;
+        }
 
-    .card p {
-        text-align: center;
-        font-size: 18px;
-        margin-top: 10px;
-    }
+        .photo-card:hover {
+            transform: scale(1.05);
+        }
 
-    /* Mensagem Flutuando */
-    .mensagem-flutuante {
-        position: fixed;
-        bottom: 20px;
-        width: 100%;
-        text-align: center;
-        font-size: 20px;
-        color: #ffffff;
-        font-weight: bold;
-        animation: flutuar 4s infinite alternate ease-in-out;
-        text-shadow: 0 0 10px #ff4fa3;
-    }
+        .photo-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
 
-    @keyframes flutuar {
-        0% { transform: translateY(0); opacity: 0.8; }
-        100% { transform: translateY(-10px); opacity: 1; }
-    }
+        .photo-card p {
+            padding: 10px;
+            font-size: 1rem;
+        }
 
-    @keyframes fadeIn {
-        from {opacity: 0;}
-        to {opacity: 1;}
-    }
+        #contador {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #b1003a;
+        }
 
-    @keyframes slideUp {
-        from {opacity: 0; transform: translateY(25px);}
-        to {opacity: 1; transform: translateY(0);}
-    }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #ff8fa3;
+            color: white;
+            margin-top: 60px;
+        }
 
-    /* Botão de música */
-    #music-btn {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: #ff4fa3;
-        color: white;
-        border: none;
-        padding: 12px 18px;
-        font-size: 16px;
-        border-radius: 20px;
-        cursor: pointer;
-        box-shadow: 0 0 10px #ff80c8;
-    }
-</style>
+        /* Player estilizado */
+        .music-player {
+            margin-top: 40px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .music-player button {
+            background: #ff8fa3;
+            border: none;
+            padding: 12px 25px;
+            color: white;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .music-player button:hover {
+            background: #ff5070;
+        }
+    </style>
 </head>
 <body>
 
-<header>💗 Para a Minha Bebela 💗</header>
+    <header>
+        <h1>Para Você, Meu Amor ❤️</h1>
+        <p>Você é a melhor parte dos meus dias.</p>
+    </header>
 
-<button id="music-btn">🎵 Música</button>
+    <section class="section">
+        <h2>Nossa História</h2>
+        <p>
+            Uma história escrita com carinho, sorrisos e momentos que guardo no coração.  
+            Cada dia com você é um presente que eu jamais poderia imaginar ter.
+        </p>
+    </section>
 
-<audio id="music" loop>
-    <source src="musica.mp3" type="audio/mpeg">
-</audio>
+    <section class="section">
+        <h2>Nossas Memórias</h2>
 
-<div class="container">
+        <div class="photos">
+            <div class="photo-card">
+                <img src="imagens/lindezaa.jpg" alt="">
+                <p>Minha lindeza ✨</p>
+            </div>
 
-    <div class="card">
-        <img src="imagens/lindezaa.jpg" alt="Foto 1">
-        <p>Seu jeitinho sempre deixa meu mundo mais bonito 💕</p>
-    </div>
+            <div class="photo-card">
+                <img src="imagens/sorrisodela.jpg" alt="">
+                <p>O sorriso que eu amo ❤️</p>
+            </div>
 
-    <div class="card">
-        <img src="imagens/nos.jpg" alt="Foto 2">
-        <p>Com você, tudo tem mais cor e mais sentido 💞</p>
-    </div>
+            <div class="photo-card">
+                <img src="imagens/nos.jpg" alt="">
+                <p>A nossa melhor parte 📸</p>
+            </div>
+        </div>
+    </section>
 
-    <div class="card">
-        <img src="imagens/sorrisodela.jpg" alt="Foto 3">
-        <p>Seu sorriso é a coisa mais linda que eu já vi na vida ✨</p>
-    </div>
+    <section class="section">
+        <h2>Tempo Juntos</h2>
+        <p>Estamos juntos há:</p>
+        <div id="contador"></div>
+    </section>
 
-</div>
+    <!-- PLAYER ESTILIZADO -->
+    <section class="section">
+        <h2>Nossa Música 🎵</h2>
+        <div class="music-player">
+            <button onclick="toggleMusic()">▶️ Tocar / Pausar Música</button>
+        </div>
 
-<div class="mensagem-flutuante">
-    Você é a melhor parte do meu dia, meu amor 💖
-</div>
+        <!-- Player YouTube invisível -->
+        <iframe 
+            id="player"
+            width="0" 
+            height="0"
+            src="https://www.youtube.com/embed/fu2vI7N6anU?enablejsapi=1"
+            frameborder="0"
+            style="display:none;">
+        </iframe>
+    </section>
 
-    
+    <footer>
+        Feito com ❤️ por alguém que te ama muito.
+    </footer>
 
-<script>
-    const btn = document.getElementById("music-btn");
-    const music = document.getElementById("music");
 
-    <button id="playMusic" style="
-    padding: 15px 25px;
-    background: #ff8fa3;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    transition: 0.3s;
-">
-🎵 Tocar nossa música
-</button>
-    
-</script>
-<!-- Música invisível com autoplay -->
-<iframe 
-    id="musicPlayer"
-    src="https://www.youtube.com/embed/3K7wpatALDQ?autoplay=1&mute=1&loop=1&playlist=3K7wpatALDQ"
-    allow="autoplay"
-    style="display:none;">
-</iframe>
+    <!-- SCRIPT DO CONTADOR -->
+    <script>
+        // Ajuste aqui a data que vocês começaram a namorar:
+        const inicio = new Date('2024-03-14');
 
-<script>
-    const botao = document.getElementById("playMusic");
+        function atualizarContador() {
+            const agora = new Date();
+            const diff = agora - inicio;
 
-    botao.addEventListener("click", function () {
-        const iframe = document.createElement("iframe");
-        iframe.src = "https://www.youtube.com/embed/3K7wpatALDQ?autoplay=1";
-        iframe.allow = "autoplay";
-        iframe.style.display = "none";
-        document.body.appendChild(iframe);
+            const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutos = Math.floor((diff / (1000 * 60)) % 60);
 
-        botao.innerText = "🎶 Tocando…";
-        botao.style.background = "#ff5c7a";
-    });
-</script>
+            document.getElementById("contador").innerHTML =
+                `${dias} dias, ${horas} horas e ${minutos} minutos 💘`;
+        }
+
+        atualizarContador();
+        setInterval(atualizarContador, 60000);
+    </script>
+
+    <!-- SCRIPT DO PLAYER -->
+    <script>
+        let player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player');
+        }
+
+        function toggleMusic() {
+            if (player && player.getPlayerState() === 1) {
+                player.pauseVideo();
+            } else {
+                player.playVideo();
+            }
+        }
+
+        // Carregar API do YouTube
+        let tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        document.body.appendChild(tag);
+    </script>
+
 </body>
 </html>
