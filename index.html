@@ -142,19 +142,26 @@
     Você é a melhor parte do meu dia, meu amor 💖
 </div>
 
+    
+
 <script>
     const btn = document.getElementById("music-btn");
     const music = document.getElementById("music");
 
-    btn.addEventListener("click", () => {
-        if (music.paused) {
-            music.play();
-            btn.innerText = "⏸ Pausar";
-        } else {
-            music.pause();
-            btn.innerText = "🎵 Música";
-        }
-    });
+    <button id="playMusic" style="
+    padding: 15px 25px;
+    background: #ff8fa3;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: 0.3s;
+">
+🎵 Tocar nossa música
+</button>
+    
 </script>
 <!-- Música invisível com autoplay -->
 <iframe 
@@ -165,11 +172,18 @@
 </iframe>
 
 <script>
-// depois de 3 segundos, ativa o som
-setTimeout(() => {
-    const player = document.getElementById("musicPlayer");
-    player.src = player.src.replace("mute=1", "mute=0");
-}, 3000);
+    const botao = document.getElementById("playMusic");
+
+    botao.addEventListener("click", function () {
+        const iframe = document.createElement("iframe");
+        iframe.src = "https://www.youtube.com/embed/3K7wpatALDQ?autoplay=1";
+        iframe.allow = "autoplay";
+        iframe.style.display = "none";
+        document.body.appendChild(iframe);
+
+        botao.innerText = "🎶 Tocando…";
+        botao.style.background = "#ff5c7a";
+    });
 </script>
 </body>
 </html>
