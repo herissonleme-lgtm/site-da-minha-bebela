@@ -84,138 +84,105 @@
             margin-top: 60px;
         }
 
-        /* Player estilizado */
-        .music-player {
+        /* PLAYER ESTILIZADO */
+        .player-box {
             margin-top: 40px;
-            background: white;
             padding: 20px;
-            border-radius: 15px;
-            display: inline-block;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            background: white;
+            border-radius: 20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        .music-player button {
-            background: #ff8fa3;
-            border: none;
-            padding: 12px 25px;
-            color: white;
-            font-size: 1.1rem;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .music-player button:hover {
-            background: #ff5070;
+        .player-box h3 {
+            margin-bottom: 10px;
+            color: #4a0d21;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Para Você, Meu Amor ❤️</h1>
-        <p>Você é a melhor parte dos meus dias.</p>
-    </header>
+<header>
+    <h1>Para Você, Meu Amor ❤️</h1>
+    <p>Você é a melhor parte dos meus dias.</p>
+</header>
 
-    <section class="section">
-        <h2>Nossa História</h2>
-        <p>
-            Uma história escrita com carinho, sorrisos e momentos que guardo no coração.  
-            Cada dia com você é um presente que eu jamais poderia imaginar ter.
-        </p>
-    </section>
+<section class="section">
+    <h2>Nossa História</h2>
+    <p>
+        Uma história escrita com carinho, sorrisos e momentos que guardo no coração.  
+        Cada dia com você é um presente que eu jamais poderia imaginar ter.
+    </p>
+</section>
 
-    <section class="section">
-        <h2>Nossas Memórias</h2>
+<section class="section">
+    <h2>Nossas Memórias</h2>
 
-        <div class="photos">
-            <div class="photo-card">
-                <img src="imagens/lindezaa.jpg" alt="">
-                <p>Minha lindeza ✨</p>
-            </div>
-
-            <div class="photo-card">
-                <img src="imagens/sorrisodela.jpg" alt="">
-                <p>O sorriso que eu amo ❤️</p>
-            </div>
-
-            <div class="photo-card">
-                <img src="imagens/nos.jpg" alt="">
-                <p>A nossa melhor parte 📸</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2>Tempo Juntos</h2>
-        <p>Estamos juntos há:</p>
-        <div id="contador"></div>
-    </section>
-
-    <!-- PLAYER ESTILIZADO -->
-    <section class="section">
-        <h2>Nossa Música 🎵</h2>
-        <div class="music-player">
-            <button onclick="toggleMusic()">▶️ Tocar / Pausar Música</button>
+    <div class="photos">
+        <div class="photo-card">
+            <img src="imagens/lindezaa.jpg" alt="">
+            <p>Meu amor lindo ✨</p>
         </div>
 
-        <!-- Player YouTube invisível -->
-        <iframe 
-            id="player"
-            width="0" 
-            height="0"
-            src="https://www.youtube.com/embed/fu2vI7N6anU?enablejsapi=1"
+        <div class="photo-card">
+            <img src="imagens/sorrisodela.jpg" alt="">
+            <p>O sorriso que eu amo ❤️</p>
+        </div>
+
+        <div class="photo-card">
+            <img src="imagens/nos.jpg" alt="">
+            <p>Nossa lembrança mais linda 📸</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>Tempo Juntos</h2>
+    <p>Estamos juntos há:</p>
+    <div id="contador"></div>
+</section>
+
+<!-- PLAYER DE MÚSICA -->
+<section class="section">
+    <div class="player-box">
+        <h3>🎵 Nossa Música — "Get You" (Daniel Caesar)</h3>
+
+        <!-- Player YouTube estilizado -->
+        <iframe width="100%" height="200"
+            src="https://www.youtube.com/embed/uQFVqltOXRg?modestbranding=1&color=white"
+            title="YouTube video player"
             frameborder="0"
-            style="display:none;">
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
         </iframe>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        Feito com ❤️ por alguém que te ama muito.
-    </footer>
+<footer>
+    Feito com ❤️ por alguém que te ama muito.
+</footer>
 
+<script>
+    // DATA DO RELACIONAMENTO — 12/04/2025
+    const inicio = new Date('2025-04-12');
 
-    <!-- SCRIPT DO CONTADOR -->
-    <script>
-        // Ajuste aqui a data que vocês começaram a namorar:
-        const inicio = new Date('2024-03-14');
+    function atualizarContador() {
+        const agora = new Date();
+        const diff = agora - inicio;
 
-        function atualizarContador() {
-            const agora = new Date();
-            const diff = agora - inicio;
+        const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutos = Math.floor((diff / (1000 * 60)) % 60);
 
-            const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
-            const minutos = Math.floor((diff / (1000 * 60)) % 60);
+        document.getElementById("contador").innerHTML =
+            `${dias} dias, ${horas} horas e ${minutos} minutos 💘`;
+    }
 
-            document.getElementById("contador").innerHTML =
-                `${dias} dias, ${horas} horas e ${minutos} minutos 💘`;
-        }
-
-        atualizarContador();
-        setInterval(atualizarContador, 60000);
-    </script>
-
-    <!-- SCRIPT DO PLAYER -->
-    <script>
-        let player;
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('player');
-        }
-
-        function toggleMusic() {
-            if (player && player.getPlayerState() === 1) {
-                player.pauseVideo();
-            } else {
-                player.playVideo();
-            }
-        }
-
-        // Carregar API do YouTube
-        let tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        document.body.appendChild(tag);
-    </script>
+    atualizarContador();
+    setInterval(atualizarContador, 60000);
+</script>
 
 </body>
 </html>
