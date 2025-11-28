@@ -158,9 +158,18 @@
 </script>
 <!-- Música invisível com autoplay -->
 <iframe 
-    src="https://www.youtube.com/embed/3K7wpatALDQ?autoplay=1&loop=1&playlist=3K7wpatALDQ"
+    id="musicPlayer"
+    src="https://www.youtube.com/embed/3K7wpatALDQ?autoplay=1&mute=1&loop=1&playlist=3K7wpatALDQ"
     allow="autoplay"
     style="display:none;">
 </iframe>
+
+<script>
+// depois de 3 segundos, ativa o som
+setTimeout(() => {
+    const player = document.getElementById("musicPlayer");
+    player.src = player.src.replace("mute=1", "mute=0");
+}, 3000);
+</script>
 </body>
 </html>
