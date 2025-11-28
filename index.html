@@ -11,6 +11,7 @@
             font-family: 'Poppins', sans-serif;
             background: #ffe6e9;
             color: #4a0d21;
+            overflow-x: hidden;
         }
 
         header {
@@ -24,10 +25,6 @@
         header h1 {
             font-size: 3rem;
             margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 1.3rem;
         }
 
         .section {
@@ -64,11 +61,6 @@
             object-fit: cover;
         }
 
-        .photo-card p {
-            padding: 10px;
-            font-size: 1rem;
-        }
-
         #contador {
             font-size: 2rem;
             font-weight: bold;
@@ -84,21 +76,44 @@
             margin-top: 60px;
         }
 
-        /* PLAYER ESTILIZADO */
-        .player-box {
-            margin-top: 40px;
-            padding: 20px;
-            background: white;
-            border-radius: 20px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        /* Corações caindo */
+        .heart {
+            position: fixed;
+            top: -10px;
+            color: #ff4d6d;
+            font-size: 20px;
+            animation: cair linear;
+            pointer-events: none;
         }
 
-        .player-box h3 {
-            margin-bottom: 10px;
-            color: #4a0d21;
+        @keyframes cair {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Player estilizado */
+        .player {
+            margin-top: 30px;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            gap: 15px;
+        }
+        .player button {
+            background: #ff477e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 15px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .player button:hover {
+            background: #d8004c;
         }
     </style>
 </head>
@@ -112,8 +127,8 @@
 <section class="section">
     <h2>Nossa História</h2>
     <p>
-        Uma história escrita com carinho, sorrisos e momentos que guardo no coração.  
-        Cada dia com você é um presente que eu jamais poderia imaginar ter.
+        Uma história escrita com carinho, sorrisos e momentos que guardo no coração.<br>
+        Cada dia com você é um presente.
     </p>
 </section>
 
@@ -122,18 +137,18 @@
 
     <div class="photos">
         <div class="photo-card">
-            <img src="imagens/lindezaa.jpg" alt="">
-            <p>Meu amor lindo ✨</p>
+            <img src="imagens/lindezaa.jpg" alt="Foto 1">
+            <p>Meu amor ✨</p>
         </div>
 
         <div class="photo-card">
-            <img src="imagens/sorrisodela.jpg" alt="">
-            <p>O sorriso que eu amo ❤️</p>
+            <img src="imagens/sorrisodela.jpg" alt="Foto 2">
+            <p>O sorriso mais lindo ❤️</p>
         </div>
 
         <div class="photo-card">
-            <img src="imagens/nos.jpg" alt="">
-            <p>Nossa lembrança mais linda 📸</p>
+            <img src="imagens/nos.jpg" alt="Foto 3">
+            <p>Nossa lembrança 📸</p>
         </div>
     </div>
 </section>
@@ -144,20 +159,17 @@
     <div id="contador"></div>
 </section>
 
-<!-- PLAYER DE MÚSICA -->
 <section class="section">
-    <div class="player-box">
-        <h3>🎵 Nossa Música — "Get You" (Daniel Caesar)</h3>
+    <h2>Nossa Música 🎵</h2>
 
-        <!-- Player YouTube estilizado -->
-        <iframe width="100%" height="200"
-            src="https://www.youtube.com/embed/uQFVqltOXRg?modestbranding=1&color=white"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-        </iframe>
+    <div class="player">
+        <button onclick="tocar()">▶ Tocar</button>
+        <button onclick="pausar()">⏸ Pausar</button>
     </div>
+
+    <audio id="musica">
+        <source src="https://soundcloud.com/swedensound/get-you-daniel-caesar-ft-kali-uchis-slowed-reverb" type="audio/mp3">
+    </audio>
 </section>
 
 <footer>
@@ -165,23 +177,40 @@
 </footer>
 
 <script>
-    // DATA DO RELACIONAMENTO — 12/04/2025
-    const inicio = new Date('2025-04-12');
+// Data do namoro
+const inicio = new Date('2025-04-12');
 
-    function atualizarContador() {
-        const agora = new Date();
-        const diff = agora - inicio;
+function atualizarContador() {
+    const agora = new Date();
+    const diff = agora - inicio;
 
-        const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutos = Math.floor((diff / (1000 * 60)) % 60);
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diff / (1000 * 60)) % 60);
 
-        document.getElementById("contador").innerHTML =
-            `${dias} dias, ${horas} horas e ${minutos} minutos 💘`;
-    }
+    document.getElementById("contador").innerHTML =
+        `${dias} dias, ${horas} horas e ${minutos} minutos 💘`;
+}
 
-    atualizarContador();
-    setInterval(atualizarContador, 60000);
+setInterval(atualizarContador, 60000);
+atualizarContador();
+
+// Player manual
+const audio = document.getElementById("musica");
+function tocar() { audio.play(); }
+function pausar() { audio.pause(); }
+
+// Corações caindo
+function criarCoracao() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = '❤️';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+}
+setInterval(criarCoracao, 300);
 </script>
 
 </body>
