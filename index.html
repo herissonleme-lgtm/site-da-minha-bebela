@@ -1,156 +1,161 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Minha Bebela ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Minha Bebela 💖</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: #ffe6ee;
-            color: #4a0d21;
-        }
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #ff8fa3, #ffb3c6);
-            color: white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+<style>
+    body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ffb6d9, #ffd2e8, #fff);
+        background-size: 300% 300%;
+        animation: gradient 10s ease infinite;
+        overflow-x: hidden;
+        color: #fff;
+    }
 
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
+    @keyframes gradient {
+        0% {background-position: 0 50%;}
+        50%{background-position: 100% 50%;}
+        100%{background-position: 0 50%;}
+    }
 
-        header p {
-            font-size: 1.3rem;
-        }
+    header {
+        text-align: center;
+        padding: 40px 20px;
+        font-size: 28px;
+        font-weight: 600;
+        color: white;
+        text-shadow: 0 0 10px #ff5ca7;
+        animation: fadeIn 2s ease;
+    }
 
-        .section {
-            max-width: 900px;
-            margin: auto;
-            padding: 60px 20px;
-            text-align: center;
-        }
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        max-width: 500px;
+        margin: auto;
+        padding: 20px;
+    }
 
-        .photos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
+    .card {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        padding: 18px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.4);
+        animation: slideUp 1.2s ease;
+    }
 
-        .photo-card {
-            width: 260px;
-            height: 330px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: 0.3s;
-        }
+    .card img {
+        width: 100%;
+        border-radius: 15px;
+        box-shadow: 0px 0px 15px #ff7dc3;
+    }
 
-        .photo-card:hover {
-            transform: scale(1.05);
-        }
+    .card p {
+        text-align: center;
+        font-size: 18px;
+        margin-top: 10px;
+    }
 
-        .photo-card img {
-            width: 100%;
-            height: 230px;
-            object-fit: cover;
-        }
+    /* Mensagem Flutuando */
+    .mensagem-flutuante {
+        position: fixed;
+        bottom: 20px;
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+        color: #ffffff;
+        font-weight: bold;
+        animation: flutuar 4s infinite alternate ease-in-out;
+        text-shadow: 0 0 10px #ff4fa3;
+    }
 
-        .photo-card p {
-            padding: 10px;
-            font-size: 1rem;
-        }
+    @keyframes flutuar {
+        0% { transform: translateY(0); opacity: 0.8; }
+        100% { transform: translateY(-10px); opacity: 1; }
+    }
 
-        #contador {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-top: 20px;
-            color: #b1003a;
-        }
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #ff8fa3;
-            color: white;
-            margin-top: 60px;
-        }
-    </style>
+    @keyframes slideUp {
+        from {opacity: 0; transform: translateY(25px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Botão de música */
+    #music-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #ff4fa3;
+        color: white;
+        border: none;
+        padding: 12px 18px;
+        font-size: 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        box-shadow: 0 0 10px #ff80c8;
+    }
+</style>
 </head>
 <body>
 
-    <header>
-        <h1>Para Minha Bebela ❤️</h1>
-        <p>Você é a melhor parte dos meus dias.</p>
-    </header>
+<header>💗 Para a Minha Bebela 💗</header>
 
-    <section class="section">
-        <h2>Nossa História</h2>
-        <p>
-            Cada momento ao seu lado é um presente que eu guardo com todo carinho.
-            Você ilumina minha vida de um jeito que só você consegue. 💖
-        </p>
-    </section>
+<button id="music-btn">🎵 Música</button>
 
-    <section class="section">
-        <h2>Nossas Memórias</h2>
+<audio id="music" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
 
-        <div class="photos">
+<div class="container">
 
-            <div class="photo-card">
-                <img src="imagens/nos.jpg" alt="">
-                <p>Nosso momento especial ✨</p>
-            </div>
+    <div class="card">
+        <img src="imagens/lindezaa.jpg" alt="Foto 1">
+        <p>Seu jeitinho sempre deixa meu mundo mais bonito 💕</p>
+    </div>
 
-            <div class="photo-card">
-                <img src="imagens/sorrisodela.jpg" alt="">
-                <p>Seu sorriso que eu amo ❤️</p>
-            </div>
+    <div class="card">
+        <img src="imagens/nos.jpg" alt="Foto 2">
+        <p>Com você, tudo tem mais cor e mais sentido 💞</p>
+    </div>
 
-            <div class="photo-card">
-                <img src="imagens/lindezaa.jpg" alt="">
-                <p>Mais uma lembrança linda 📸</p>
-            </div>
+    <div class="card">
+        <img src="imagens/sorrisodela.jpg" alt="Foto 3">
+        <p>Seu sorriso é a coisa mais linda que eu já vi na vida ✨</p>
+    </div>
 
-        </div>
-    </section>
+</div>
 
-    <section class="section">
-        <h2>Tempo Juntos</h2>
-        <p>Estamos juntos há:</p>
-        <div id="contador"></div>
-    </section>
+<div class="mensagem-flutuante">
+    Você é a melhor parte do meu dia, meu amor 💖
+</div>
 
-    <footer>
-        Feito com ❤️ por alguém que te ama mais do que tudo.
-    </footer>
+<script>
+    const btn = document.getElementById("music-btn");
+    const music = document.getElementById("music");
 
-    <script>
-        const inicio = new Date('2024-03-14');
-
-        function atualizarContador() {
-            const agora = new Date();
-            const diff = agora - inicio;
-
-            const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
-            const minutos = Math.floor((diff / (1000 * 60)) % 60);
-
-            document.getElementById("contador").innerHTML =
-                `${dias} dias, ${horas} horas e ${minutos} minutos 💘`;
+    btn.addEventListener("click", () => {
+        if (music.paused) {
+            music.play();
+            btn.innerText = "⏸ Pausar";
+        } else {
+            music.pause();
+            btn.innerText = "🎵 Música";
         }
-
-        atualizarContador();
-        setInterval(atualizarContador, 60000);
-    </script>
+    });
+</script>
 
 </body>
 </html>
